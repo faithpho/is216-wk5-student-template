@@ -9,6 +9,7 @@ function deleteItem(index){
 
 function addItem(){
     items.value.push(newItem.value)
+    newItem.value = ""
 }
 </script>
 
@@ -22,6 +23,7 @@ function addItem(){
             <button @click="deleteItem(index)">Delete!</button>
         </li>
     </ul>
-    <input type="text" v-model="newItem">
+    <!-- this way either pressing "add!" button or enter will submit cart-->
+    <input type="text" v-model="newItem" @keyup.enter="addItem()"> 
     <button @click="addItem(newItem)">Add!</button>
 </template>
