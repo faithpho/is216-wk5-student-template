@@ -2,31 +2,31 @@
 
 import { ref } from 'vue';
 
-const id = ref('circle')
-
+const id = ref("shape")
+const clss = ref('circle')
 
 function mOver() {
     // add code here
-    id.value = 'square'
+    clss.value = 'square'
 }
 
 function mOut() {
     // add code here
-   id.value = 'circle'
+   clss.value = 'circle'
 }
 </script>
 
 <template>
     <!-- modify code below -->
      <!-- v-bind:id = "id" same as :i"id-->
-    <div :id="id" @mouseover="mOver" @mouseout="mOut">
+    <div :id="id" :class="clss" @mouseover="mOver" @mouseout="mOut">
         Mouse Over Me
     </div>
 
 </template>
 
 <style scoped>
-#square {
+#shape {
     width: 150px;
     height: 150px;
     background-color: goldenrod;
@@ -34,12 +34,10 @@ function mOut() {
     padding-top: 60px;
 }
 
-#circle {
-    width: 150px;
-    height: 150px;
+.circle {
     border-radius: 50%;
-    background-color: goldenrod;
-    text-align: center;
-    padding-top: 60px;
+}
+.square {
+    border-radius: 0%;
 }
 </style>
