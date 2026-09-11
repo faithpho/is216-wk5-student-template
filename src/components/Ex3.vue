@@ -8,15 +8,29 @@ const selectedOp = ref("+")
 
 // TODO: Add Code Here
 // Note: DO NOT USE "eval()". In security, "eval" is considered "evil"!!!
-
+const result = computed(()=>{
+    if(selectedOp.value === "+"){
+        return x.value + y.value;
+    } if (selectedOp.value === "-"){
+        return x.value - y.value;
+    } if (selectedOp.value === "*"){
+        return x.value * y.value;
+    } if (selectedOp.value === "/"){
+        return x.value / y.value;
+    } if (selectedOp.value === "%"){
+        return x.value % y.value;
+    } 
+})
     
 </script>
 
 <template>
-    <p>x <input v-model.number="x"></p>
+    <p>x <input v-model.number="x"></p> <!-- only can be number-->
+    <p style="text-align: center;">
     <select v-model="selectedOp">
         <option v-for="op in operators">{{ op }}</option>
     </select>
+    </p>
     <p>y <input v-model.number="y"></p>
 
     <p>---------------------</p>
